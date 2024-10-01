@@ -1,15 +1,14 @@
 <?php
-require_once "conexion.php";
-class ModeloCursos{
-    public static function index($tabla){
+
+class ModeloCliente{
+    static public function index($tabla){
         $stmt=conexion::conectar()->prepare("select * from $tabla");
         $stmt->execute();
 
-        return $stmt->fetchAll(PDO::FETCH_CLASS);
+        return $stmt->fetchAll();
         $stmt->close();
         $stmt->null;
     }
 }
-
 
 ?>
